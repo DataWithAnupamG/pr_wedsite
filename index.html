@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom New Tab</title>
+  <style>
+    /* ========== Base Styles ========== */
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      width: 100vw;
+      background: #121212;
+      color: white;
+    }
+
+    /* Background iframe */
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      z-index: 0;
+    }
+
+    /* Dark overlay */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      z-index: 1;
+    }
+
+    /* ========== Navbar ========== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1200px;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(40, 40, 40, 0.6);
+      backdrop-filter: blur(12px);
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      z-index: 3;
+    }
+
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .navbar .nav-right a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ddd;
+      transition: color 0.3s;
+    }
+
+    .navbar .nav-right a:hover {
+      color: white;
+    }
+
+    /* ========== Search Bar ========== */
+    .search-container {
+      position: fixed;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      max-width: 90%;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      background: #2c2c2c;
+      border-radius: 40px;
+      padding: 10px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .search-container input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      font-size: 16px;
+      padding: 8px;
+    }
+
+    .search-container button {
+      background: none;
+      border: none;
+      color: #bbb;
+      cursor: pointer;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+
+    .search-container button:hover {
+      color: white;
+    }
+
+    /* ========== Shortcuts Bar ========== */
+    .shortcuts {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      z-index: 2;
+      justify-content: center;
+    }
+
+    .shortcuts a img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: transparent;
+      filter: brightness(0.95);
+      transition: transform 0.2s ease, box-shadow 0.3s;
+    }
+
+    .shortcuts a img:hover {
+      transform: scale(1.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .search-container {
+        top: 100px;
+        width: 90%;
+        padding: 8px 15px;
+      }
+      .shortcuts a img {
+        width: 44px;
+        height: 44px;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+      }
+      .navbar .nav-right {
+        margin-top: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .search-container {
+        top: 90px;
+        width: 95%;
+        font-size: 14px;
+      }
+      .shortcuts {
+        gap: 15px;
+        bottom: 20px;
+      }
+      .shortcuts a img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background -->
+  <iframe src="https://datawithanupamg.github.io/Time/"></iframe>
+  <div class="overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">⚡ MyTab</div>
+    <div class="nav-right">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Search bar -->
+  <form class="search-container" action="https://www.google.com/search" method="GET">
+    <input type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off">
+    <button type="submit">🔍</button>
+  </form>
+
+  <!-- Shortcuts -->
+  <div class="shortcuts">
+    <a href="https://www.google.com">
+      <img src="https://www.google.com/favicon.ico" alt="Google">
+    </a>
+    <a href="https://chat.openai.com">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT">
+    </a>
+    <a href="https://www.youtube.com">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
+    </a>
+    <a href="https://github.com">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+    </a>
+    <a href="https://www.spotify.com">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+    </a>
+    <a href="https://qa.glammery.in/">
+      <img src="https://qa.glammery.in/favicon.ico" alt="Glammery">
+    </a>
+    <a href="https://www.notion.so">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion">
+    </a>
+  </div>
+</body>
+</html>
