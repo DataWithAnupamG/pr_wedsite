@@ -41,43 +41,37 @@
     /* ========== Navbar ========== */
     .navbar {
       position: fixed;
-      top: 0;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      width: 100%;
-      max-width: 1200px;
-      padding: 12px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(40, 40, 40, 0.6);
-      backdrop-filter: blur(12px);
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      width: 600px;
+      max-width: 90%;
       z-index: 3;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background: #2c2c2c;
+      border-radius: 40px;
+      padding: 12px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
     }
 
-    .navbar .logo {
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-    }
-
-    .navbar .nav-right a {
-      margin-left: 20px;
+    .navbar a {
       text-decoration: none;
       color: #ddd;
+      font-size: 16px;
       transition: color 0.3s;
     }
 
-    .navbar .nav-right a:hover {
+    .navbar a:hover {
       color: white;
     }
 
     /* ========== Search Bar ========== */
     .search-container {
       position: fixed;
-      top: 120px;
+      top: 100px;
       left: 50%;
       transform: translateX(-50%);
       width: 600px;
@@ -143,8 +137,13 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+      .navbar {
+        width: 95%;
+        gap: 20px;
+        padding: 10px 15px;
+      }
       .search-container {
-        top: 100px;
+        top: 90px;
         width: 90%;
         padding: 8px 15px;
       }
@@ -152,19 +151,17 @@
         width: 44px;
         height: 44px;
       }
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 20px;
-      }
-      .navbar .nav-right {
-        margin-top: 8px;
-      }
     }
 
     @media (max-width: 480px) {
+      .navbar {
+        top: 15px;
+        width: 95%;
+        font-size: 14px;
+        gap: 15px;
+      }
       .search-container {
-        top: 90px;
+        top: 80px;
         width: 95%;
         font-size: 14px;
       }
@@ -187,13 +184,10 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">⚡ MyTab</div>
-    <div class="nav-right">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Blog</a>
-      <a href="#">Contact</a>
-    </div>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
   </nav>
 
   <!-- Search bar -->
@@ -228,3 +222,4 @@
   </div>
 </body>
 </html>
+
